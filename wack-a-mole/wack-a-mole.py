@@ -4,27 +4,26 @@ import random
 import time
 
 lives = 3
-score = 0
-
+x = 0
 top = Tk()
 
 top.geometry("900x1000")
 
-c = Canvas(top, bg = "green", height = "900", width = "1000")
+c = Canvas(top, bg = "green", height = "9000", width = "10000")
+c.place(x=0, y=0)
 
-c.pack()
 
-b = Button(top,text = "Simple") 
-photo = PhotoImage(file = r"C:\Users\Desktop\icon.png") 
-b.pack()
-def button_click():
-    score += 1
+def click():
+    time.sleep(1)
+    b.pack_forget()
+while x<2:
+    time.sleep(1)
+    b = Button(top, command=click)
+    b.place(x=random.randint(100, 800), y=random.randint(200, 800))
+    x +=1
+print(x)
 
-   
-#while lives > 0:
-    #btn = tt.Button(top, image="mole.png", command=button_click)
-    
-    
 
 top.mainloop()
+
 
