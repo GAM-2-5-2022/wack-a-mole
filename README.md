@@ -1,1 +1,1 @@
-# wack-a-mole
+# whack-a-mole
