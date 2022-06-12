@@ -23,6 +23,19 @@ def start():
     b.place(x=random.randint(0, 1800), y=random.randint(100, 800))
     top.after(60000, gameover)
 
+a = Button(top, command=start, bg="lime", bd=0, image=photo2)
+a.place(x=850, y=450)
+     
+def click():
+    global x
+    global b
+    b.destroy()
+    x+=1
+    text_label = "score: " + str(x)
+    Label(top, text = text_label,font=("bold", 40), bg="lime", bd=0).place(x=850, y=2) 
+    b = Button(top,image=photo, command=click, bd=0, bg="lime")
+    b.place(x=random.randint(0, 1700), y=random.randint(100, 700))
+
 def gameover():
     global x
     newWindow = Toplevel(top)
@@ -33,18 +46,5 @@ def gameover():
     text_label = "score: " + str(x)
     Label(newWindow, text = text_label,font=("bold", 40), bg="lime", bd=0).pack()
     top.withdraw()
-   
-a = Button(top, command=start, bg="lime", bd=0, image=photo2)
-a.place(x=850, y=450)
-
-def click():
-    global x
-    global b
-    b.destroy()
-    x+=1
-    text_label = "score: " + str(x)
-    Label(top, text = text_label,font=("bold", 40), bg="lime", bd=0).place(x=850, y=2) 
-    b = Button(top,image=photo, command=click, bd=0, bg="lime")
-    b.place(x=random.randint(0, 1700), y=random.randint(100, 700))
 
 top.mainloop()
